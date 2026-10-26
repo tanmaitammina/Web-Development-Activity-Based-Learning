@@ -1,0 +1,1199 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ShopSpark | Online Shopping</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f7f8fc;
+    color: #25243a;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.offer-bar {
+    background: linear-gradient(90deg, #6c35d5, #ed4f9b);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+}
+
+header {
+    background: white;
+    padding: 18px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    box-shadow: 0 3px 12px #00000012;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    color: #713bd1;
+    font-size: 28px;
+    font-weight: 900;
+}
+
+nav {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #e34d94;
+}
+
+.hero {
+    margin: 25px auto;
+    width: 90%;
+    padding: 55px 7%;
+    border-radius: 24px;
+    color: white;
+    background: linear-gradient(120deg, #6136c8, #a34dd4, #ed609f);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.hero h1 {
+    font-size: clamp(30px, 5vw, 48px);
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    margin-bottom: 25px;
+    max-width: 520px;
+}
+
+.hero-art {
+    font-size: clamp(75px, 12vw, 145px);
+    text-align: center;
+}
+
+.button {
+    display: inline-block;
+    padding: 12px 22px;
+    border-radius: 25px;
+    background: #fff;
+    color: #6736c5;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+    background: #ffe3f1;
+}
+
+.benefits {
+    width: 90%;
+    margin: 25px auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.benefit {
+    background: white;
+    text-align: center;
+    padding: 18px 10px;
+    border-radius: 14px;
+    box-shadow: 0 3px 12px #00000008;
+}
+
+.benefit span {
+    font-size: 28px;
+}
+
+.benefit h3 {
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+.benefit p {
+    font-size: 12px;
+    color: #777;
+}
+
+.category-area {
+    width: 90%;
+    margin: 35px auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #777;
+    margin-bottom: 25px;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 12px;
+}
+
+.category {
+    background: white;
+    padding: 18px 5px;
+    border-radius: 15px;
+    text-align: center;
+    border: 1px solid #eee;
+    transition: 0.3s;
+}
+
+.category:hover {
+    transform: translateY(-5px);
+    border-color: #9b71e8;
+    box-shadow: 0 7px 18px #6c35d51c;
+}
+
+.category span {
+    display: block;
+    font-size: 32px;
+}
+
+.category strong {
+    font-size: 12px;
+}
+
+.promo {
+    width: 90%;
+    margin: 40px auto;
+    background: #fff0d8;
+    border: 1px solid #ffe0a8;
+    padding: 28px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.promo h2 {
+    color: #8a4c12;
+}
+
+.promo p {
+    color: #6b5a46;
+}
+
+.promo .button {
+    background: #8a4c12;
+    color: white;
+    white-space: nowrap;
+}
+
+.shop-section {
+    width: 90%;
+    margin: 50px auto;
+    scroll-margin-top: 100px;
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.section-heading h2 {
+    font-size: 27px;
+}
+
+.section-heading a {
+    color: #713bd1;
+    font-weight: bold;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px #0000000c;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid #eee;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px #00000015;
+}
+
+.product-image {
+    min-height: 160px;
+    display: grid;
+    place-items: center;
+    font-size: 75px;
+    position: relative;
+}
+
+.product-image span {
+    filter: drop-shadow(0 5px 3px #00000012);
+}
+
+.tag {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    padding: 5px 9px;
+    border-radius: 6px;
+    background: #e94d8c;
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.clothes { background: #ffe4ed; }
+.electronics { background: #dfeaff; }
+.food { background: #fff0cf; }
+.shoes { background: #e3f6e8; }
+.beauty { background: #f5e1ff; }
+.home { background: #ffeadc; }
+.books { background: #e4edff; }
+.accessories { background: #ffe4e2; }
+
+.product-info {
+    padding: 15px;
+}
+
+.product-info h3 {
+    font-size: 17px;
+    margin-bottom: 5px;
+}
+
+.description {
+    color: #777;
+    font-size: 12px;
+    min-height: 38px;
+}
+
+.rating {
+    color: #e49a16;
+    font-size: 13px;
+    margin: 8px 0;
+}
+
+.price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #6335c4;
+}
+
+.old-price {
+    font-size: 13px;
+    color: #888;
+    text-decoration: line-through;
+    margin-left: 5px;
+    font-weight: normal;
+}
+
+.save {
+    font-size: 12px;
+    color: #16834b;
+    font-weight: bold;
+    margin: 4px 0 12px;
+}
+
+.buy {
+    display: block;
+    text-align: center;
+    background: #713bd1;
+    color: white;
+    border-radius: 9px;
+    padding: 10px;
+    font-size: 13px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.buy:hover {
+    background: #e34d94;
+}
+
+.steps {
+    width: 90%;
+    margin: 45px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 20px;
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    text-align: center;
+    margin-top: 22px;
+}
+
+.step {
+    padding: 20px;
+    background: #f7f2ff;
+    border-radius: 14px;
+}
+
+.step span {
+    font-size: 35px;
+}
+
+.newsletter {
+    background: #28213e;
+    color: white;
+    text-align: center;
+    padding: 45px 20px;
+    margin-top: 45px;
+}
+
+.newsletter p {
+    color: #ddd3ee;
+    margin: 8px 0 20px;
+}
+
+.newsletter form {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.newsletter input {
+    width: min(320px, 90%);
+    padding: 13px;
+    border: none;
+    border-radius: 8px;
+}
+
+.newsletter button {
+    padding: 13px 20px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    background: #e34d94;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+footer {
+    background: #191426;
+    color: white;
+    text-align: center;
+    padding: 25px 15px;
+    font-size: 13px;
+}
+
+footer p {
+    margin: 5px 0;
+    color: #d7cde8;
+}
+
+@media (max-width: 1000px) {
+    .category-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .products {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .benefits {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        justify-content: center;
+        text-align: center;
+    }
+
+    nav {
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 35px 20px;
+    }
+
+    .hero-art {
+        font-size: 85px;
+    }
+
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .products {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .product-image {
+        min-height: 120px;
+        font-size: 55px;
+    }
+
+    .product-info {
+        padding: 10px;
+    }
+
+    .product-info h3 {
+        font-size: 15px;
+    }
+
+    .price {
+        font-size: 16px;
+    }
+
+    .old-price {
+        font-size: 11px;
+    }
+
+    .promo {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .section-heading h2 {
+        font-size: 21px;
+    }
+
+    .steps-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 360px) {
+    .products {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="offer-bar">
+    🎉 MEGA SHOPPING FESTIVAL — Save up to 50% on selected products!
+</div>
+
+<header>
+    <a href="#" class="logo">🛍️ ShopSpark</a>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#clothes">Clothes</a>
+        <a href="#electronics">Electronics</a>
+        <a href="#food">Food</a>
+        <a href="#shoes">Shoes</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<main id="home">
+
+<section class="hero">
+    <div>
+        <h1>Discover Your<br>Shopping Style ✨</h1>
+        <p>
+            Find your favourite fashion, gadgets, groceries and more
+            in one place. Great products, exciting offers and happy shopping!
+        </p>
+        <a href="#categories" class="button">Explore Categories →</a>
+    </div>
+
+    <div class="hero-art">🛍️</div>
+</section>
+
+<section class="benefits">
+    <div class="benefit">
+        <span>🚚</span>
+        <h3>Easy Delivery</h3>
+        <p>Convenient shopping</p>
+    </div>
+
+    <div class="benefit">
+        <span>💳</span>
+        <h3>Secure Payments</h3>
+        <p>Simple checkout concept</p>
+    </div>
+
+    <div class="benefit">
+        <span>🎁</span>
+        <h3>Special Offers</h3>
+        <p>Deals on selected items</p>
+    </div>
+
+    <div class="benefit">
+        <span>⭐</span>
+        <h3>Top Picks</h3>
+        <p>Explore popular products</p>
+    </div>
+</section>
+
+<section class="category-area" id="categories">
+    <h2 class="section-title">Shop by Category</h2>
+    <p class="section-subtitle">Everything you need, all in one place!</p>
+
+    <div class="category-grid">
+        <a href="#clothes" class="category">
+            <span>👗</span><strong>Clothes</strong>
+        </a>
+        <a href="#electronics" class="category">
+            <span>🎧</span><strong>Electronics</strong>
+        </a>
+        <a href="#food" class="category">
+            <span>🍎</span><strong>Food</strong>
+        </a>
+        <a href="#shoes" class="category">
+            <span>👟</span><strong>Shoes</strong>
+        </a>
+        <a href="#beauty" class="category">
+            <span>🧴</span><strong>Beauty</strong>
+        </a>
+        <a href="#home-kitchen" class="category">
+            <span>🏠</span><strong>Home</strong>
+        </a>
+        <a href="#books" class="category">
+            <span>📚</span><strong>Books</strong>
+        </a>
+        <a href="#accessories" class="category">
+            <span>⌚</span><strong>Accessories</strong>
+        </a>
+    </div>
+</section>
+
+<section class="promo">
+    <div>
+        <h2>🌈 The Colourful Deals Sale!</h2>
+        <p>Explore selected products at exciting sample prices.</p>
+    </div>
+    <a href="#electronics" class="button">Explore Deals →</a>
+</section>
+
+<!-- CLOTHES SECTION -->
+<section class="shop-section" id="clothes">
+    <div class="section-heading">
+        <h2>👗 Fashion & Clothes</h2>
+        <a href="#categories">All Categories ↑</a>
+    </div>
+
+    <div class="products">
+        <article class="card">
+            <div class="product-image clothes">
+                <span>👕</span><b class="tag">20% OFF</b>
+            </div>
+            <div class="product-info">
+                <h3>Classic T-Shirt</h3>
+                <p class="description">Soft cotton T-shirt for everyday comfort.</p>
+                <div class="rating">★★★★★ (4.5)</div>
+                <div class="price">₹399 <span class="old-price">₹499</span></div>
+                <p class="save">You save ₹100</p>
+                <a href="#contact" class="buy">🛒 Shop Product</a>
+            </div>
+        </article>
+
+        <article class="card">
+            <div class="product-image clothes">
+                <span>👗</span><b class="tag">25% OFF</b>
+            </div>
+            <div class="product-info">
+                <h3>Floral Dress</h3>
+                <p class="description">A stylish floral outfit for special days.</p>
+                <div class="rating">★★★★★ (4.7)</div>
+                <div class="price">₹899 <span class="old-price">₹1,199</span></div>
+                <p class="save">You save ₹300</p>
+                <a href="#contact" class="buy">🛒 Shop Product</a>
+            </div>
+        </article>
+
+        <article class="card">
+            <div class="product-image clothes">
+                <span>👖</span><b class="tag">15% OFF</b>
+            </div>
+            <div class="product-info">
+                <h3>Denim Jeans</h3>
+                <p class="description">Everyday denim for casual outfits.</p>
+                <div class="rating">★★★★☆ (4.2)</div>
+                <div class="price">₹849 <span class="old-price">₹999</span></div>
+                <p class="save">You save ₹150</p>
+                <a href="#contact" class="buy">🛒 Shop Product</a>
+            </div>
+        </article>
+
+        <article class="card">
+            <div class="product-image clothes">
+                <span>🧥</span><b class="tag">30% OFF</b>
+            </div>
+            <div class="product-info">
+                <h3>Casual Jacket</h3>
+                <p class="description">A comfortable layer for cool weather.</p>
+                <div class="rating">★★★★★ (4.6)</div>
+                <div class="price">₹1,399 <span class="old-price">₹1,999</span></div>
+                <p class="save">You save ₹600</p>
+                <a href="#contact" class="buy">🛒 Shop Product</a>
+            </div>
+        </article>
+    </div>
+</section>
+
+<!-- ELECTRONICS SECTION -->
+<section class="shop-section" id="electronics">
+    <div class="section-heading">
+        <h2>🎧 Electronics & Gadgets</h2>
+        <a href="#categories">All Categories ↑</a>
+    </div>
+
+    <div class="products">
+        <article class="card">
+            <div class="product-image electronics">
+                <span>🎧</span><b class="tag">20% OFF</b>
+            </div>
+            <div class="product-info">
+                <h3>Wireless Headphones</h3>
+                <p class="description">Enjoy music with a comfortable design.</p>
+                <div class="rating">★★★★★ (4.6)</div>
+                <div class="price">₹799 <span class="old-price">₹999</span></div>
+                <p class="save">You save ₹200</p>
+                <a href="#contact" class="buy">🛒 Shop Product</a>
+            </div>
+        </article>
+
+        <article class="card">
+            <div class="product-image electronics">
+                <span>⌚</span><b class="tag">25% OFF</b>
+            </div>
+            <div class="product-info">
+                <h3>Smart Watch</h3>
+                <p class="description">A modern watch with useful smart features.</p>
+                <div class="rating">★★★★☆ (4.3)</div>
+                <div class="price">₹1,499 <span class="old-price">₹1,999</span></div>
+                <p class="save">You save ₹500</p>
+                <a href="#contact" class="buy">🛒 Shop Product</a>
+            </div>
+        </article>
+
+        <article class="card">
+            <div class="product-image electronics">
+                <span>🔊</span><b class="tag">15% OFF</b>
+            </div>
+            <div class="product-info">
+                <h3>Bluetooth Speaker</h3>
+                <p class="description">Portable speaker for music on the go.</p>
+                <div class="rating">★★★★☆ (4.1)</div>
+                <div class="price">₹849 <span class="old-price">₹999</span></div>
+                <p class="save">You save ₹150</p>
+                <a href="#contact" class="buy">🛒 Shop Product</a>
+            </div>
+        </article>
+
+        <article class="card">
+            <div class="product-image electronics">
+                <span>⌨️</span><b class="tag">10% OFF</b>
+            </div>
+            <div class="product-info">
+                <h3>Computer Keyboard</h3>
+                <p class="description">A practical keyboard for study and work.</p>
+                <div class="rating">★★★★☆ (4.2)</div>
+                <div class="price">₹899 <span class="old-price">₹999</span></div>
+                <p class="save">You save ₹100</p>
+                <a href="#contact" class="buy">🛒 Shop Product</a>
+            </div>
+        </article>
+    </div>
+</section>
+
+<!-- FOOD SECTION -->
+<section class="shop-section" id="food">
+    <div class="section-heading">
+        <h2>🍎 Food & Groceries</h2>
+        <a href="#categories">All Categories ↑</a>
+    </div>
+
+    <div class="products">
+        <article class="card">
+            <div class="product-image food">
+                <span>🍪</span><b class="tag">10% OFF</b>
+            </div>
+            <div class="product-info">
+                <h3>Choco Cookies</h3>
+                <p class="description">Crunchy cookies for a sweet snack.</p>
+                <div class="rating">★★★★★ (4.5)</div>
+                <div class="price">₹90 <span class="old-price">₹100</span></div>
+                <p class="save">You save ₹10</p>
+                <a href="#contact" class="buy">🛒 Shop Product</a>
+            </div>
+        </article>
+
+        <article class="card">
+            <div class="product-image food">
+                <span>🍫</span><b class="tag">15% OFF</b>
+            </div>
+            <div class="product-info">
+                <h3>Chocolate Bar</h3>
+                <p class="description">A delicious chocolate treat.</p>
+                <div class="rating">★★★★☆ (4.3)</div>
+                <div class="price">₹85 <span class="old-price">₹100</span></div>
+                <p class="save">You save ₹15</p>
+                <a href="#contact" class="buy">🛒 Shop Product</a>
+            </div>
+        </article>
+
+        <article class="card">
+            <div class="product-image food">
+                <span>🍯</span><b class="tag">20% OFF</b>
+            </div>
+            <div class="product-info">
+                <h3>Natural Honey</h3>
+                <p class="description">A sweet pantry staple for your kitchen.</p>
+                <div class="rating">★★★★★ (4.7)</div>
+                <div class="price">₹240 <span class="old-price">₹300</span></div>
+                <p class="save">You save ₹60</p>
+                <a href="#contact" class="buy">🛒 Shop Product</a>
+            </div>
+        </article>
+
+        <article class="card">
+            <div class="product-image food">
+                <span>🥜</span><b class="tag">10% OFF</b>
+            </div>
+            <div class="product-info">
+                <h3>Mixed Nuts</h3>
+                <p class="description">A crunchy snack mix for your pantry.</p>
+                <div class="rating">★★★★☆ (4.4)</div>
+                <div class="price">₹180 <span class="old-price">₹200</span></div>
+                <p class="save">You save ₹20</p>
+                <a href="#contact" class="buy">🛒 Shop Product</a>
+            </div>
+        </article>
+    </div>
+</section>
+
+<!-- SHOES SECTION -->
+<section class="shop-section" id="shoes">
+    <div class="section-heading">
+        <h2>👟 Shoes & Footwear</h2>
+        <a href="#categories">All Categories ↑</a>
+    </div>
+
+    <div class="products">
+        <article class="card">
+            <div class="product-image shoes">
+                <span>👟</span><b class="tag">20% OFF</b>
+            </div>
+            <div class="product-info">
+                <h3>Sport Sneakers</h3>
+                <p class="description">Comfortable footwear for daily activities.</p>
+                <div class="rating">★★★★★ (4.6)</div>
+                <div class="price">₹1,199 <span class="old-price">₹1,499</span></div>
+                <p class="save">You save ₹300</p>
+                <a href="#contact" class="buy">🛒 Shop Product</a>
+            </div>
+        </article>
+
+        <article class="card">
+            <div class="product-image shoes">
+                <span>🩴</span><b class="tag">25% OFF</b>
+            </div>
+            <div class="product-info">
+                <h3>Casual Sandals</h3>
+                <p class="description">Lightweight sandals for everyday use.</p>
+                <div class="rating">★★★★☆ (4.2)</div>
+                <div class="price">₹375 <span class="old-price">₹500</span></div>
+                <p class="save">You save ₹125</p>
+                <a href="#contact" class="buy">🛒 Shop Product</a>
+            </div>
+        </article>
+
+        <article class="card">
+            <div class="product-image shoes">
+                <span>🥾</span><b class="tag">15% OFF</b>
+            </div>
+            <div class="product-info">
+                <h3>Outdoor Boots</h3>
+                <p class="description">Sturdy footwear for outdoor adventures.</p>
+                <div class="rating">★★★★☆ (4.4)</div>
+                <div class="price">₹1,699 <span class="old-price">₹1,999</span></div>
+                <p class="save">You save ₹300</p>
+                <a href="#contact" class="buy">🛒 Shop Product</a>
+            </div>
+        </article>
+
+        <article class="card">
+            <div class="product-image shoes">
+                <span>🥿</span><b class="tag">10% OFF</b>
+            </div>
+            <div class="product-info">
+                <h3>Comfort Slippers</h3>
+                <p class="description">Easy-to-wear slippers for home.</p>
+                <div class="rating">★★★★☆ (4.1)</div>
+                <div class="price">₹270 <span class="old-price">₹300</span></div>
+                <p class="save">You save ₹30</p>
+                <a href="#contact" class="buy">🛒 Shop Product</a>
+            </div>
+        </article>
+    </div>
+</section>
+
+<!-- BEAUTY SECTION -->
+<section class="shop-section" id="beauty">
+    <div class="section-heading">
+        <h2>🧴 Beauty & Personal Care</h2>
+        <a href="#categories">All Categories ↑</a>
+    </div>
+
+    <div class="products">
+        <article class="card">
+            <div class="product-image beauty">
+                <span>🧴</span><b class="tag">15% OFF</b>
+            </div>
+            <div class="product-info">
+                <h3>Body Lotion</h3>
+                <p class="description">A daily moisturising skincare product.</p>
+                <div class="rating">★★★★☆ (4.3)</div>
+                <div class="price">₹255 <span class="old-price">₹300</span></div>
+                <p class="save">You save ₹45</p>
+                <a href="#contact" class="buy">🛒 Shop Product</a>
+            </div>
+        </article>
+
+        <article class="card">
+            <div class="product-image beauty">
+                <span>🧼</span><b class="tag">10% OFF</b>
+            </div>
+            <div class="product-info">
+                <h3>Gentle Face Wash</h3>
+                <p class="description">A simple cleanser for everyday care.</p>
+                <div class="rating">★★★★★ (4.5)</div>
+                <div class="price">₹180 <span class="old-price">₹200</span></div>
+                <p class="save">You save ₹20</p>
+                <a href="#contact" class="buy">🛒 Shop Product</a>
+            </div>
+        </article>
+
+        <article class="card">
+            <div class="product-image beauty">
+                <span>💄</span><b class="tag">20% OFF</b>
+            </div>
+            <div class="product-info">
+                <h3>Lip Colour</h3>
+                <p class="description">A colourful finishing touch to your look.</p>
+                <div class="rating">★★★★☆ (4.2)</div>
+                <div class="price">₹240 <span class="old-price">₹300</span></div>
+                <p class="save">You save ₹60</p>
+                <a href="#contact" class="buy">🛒 Shop Product</a>
+            </div>
+        </article>
+
+        <article class="card">
+            <div class="product-image beauty">
+                <span>🪮</span><b class="tag">10% OFF</b>
+            </div>
+            <div class="product-info">
+                <h3>Hair Brush</h3>
+                <p class="description">A handy accessory for everyday grooming.</p>
+                <div class="rating">★★★★☆ (4.1)</div>
+                <div class="price">₹135 <span class="old-price">₹150</span></div>
+                <p class="save">You save ₹15</p>
+                <a href="#contact" class="buy">🛒 Shop Product</a>
+            </div>
+        </article>
+    </div>
+</section>
+
+<!-- HOME AND KITCHEN SECTION -->
+<section class="shop-section" id="home-kitchen">
+    <div class="section-heading">
+        <h2>🏠 Home & Kitchen</h2>
+        <a href="#categories">All Categories ↑</a>
+    </div>
+
+    <div class="products">
+        <article class="card">
+            <div class="product-image home">
+                <span>☕</span><b class="tag">20% OFF</b>
+            </div>
+            <div class="product-info">
+                <h3>Coffee Mug</h3>
+                <p class="description">A handy mug for your favourite drinks.</p>
+                <div class="rating">★★★★★ (4.5)</div>
+                <div class="price">₹240 <span class="old-price">₹300</span></div>
+                <p class="save">You save ₹60</p>
+                <a href="#contact" class="buy">🛒 Shop Product</a>
+            </div>
+        </article>
+
+        <article class="card">
+            <div class="product-image home">
+                <span>🛏️</span><b class="tag">15% OFF</b>
+            </div>
+            <div class="product-info">
+                <h3>Bed Sheet Set</h3>
+                <p class="description">Add colour and comfort to your bedroom.</p>
+                <div class="rating">★★★★☆ (4.3)</div>
+                <div class="price">₹850 <span class="old-price">₹1,000</span></div>
+                <p class="save">You save ₹150</p>
+                <a href="#contact" class="buy">🛒 Shop Product</a>
+            </div>
+        </article>
+
+        <article class="card">
+            <div class="product-image home">
+                <span>💡</span><b class="tag">25% OFF</b>
+            </div>
+            <div class="product-info">
+                <h3>Desk Lamp</h3>
+                <p class="description">A useful lamp for reading and studying.</p>
+                <div class="rating">★★★★★ (4.6)</div>
+                <div class="price">₹450 <span class="old-price">₹600</span></div>
+                <p class="save">You save ₹150</p>
+                <a href="#contact" class="buy">🛒 Shop Product</a>
+            </div>
+        </article>
+
+        <article class="card">
+            <div class="product-image home">
+                <span>🪴</span><b class="tag">10% OFF</b>
+            </div>
+            <div class="product-info">
+                <h3>Decorative Planter</h3>
+                <p class="description">Give your room a fresh decorative touch.</p>
+                <div class="rating">★★★★☆ (4.2)</div>
+                <div class="price">₹270 <span class="old-price">₹300</span></div>
+                <p class="save">You save ₹30</p>
+                <a href="#contact" class="buy">🛒 Shop Product</a>
+            </div>
+        </article>
+    </div>
+</section>
+
+<!-- BOOKS SECTION -->
+<section class="shop-section" id="books">
+    <div class="section-heading">
+        <h2>📚 Books & Stationery</h2>
+        <a href="#categories">All Categories ↑</a>
+    </div>
+
+    <div class="products">
+        <article class="card">
+            <div class="product-image books">
+                <span>📘</span><b class="tag">10% OFF</b>
+            </div>
+            <div class="product-info">
+                <h3>Notebook Set</h3>
+                <p class="description">Notebooks for class notes and daily plans.</p>
+                <div class="rating">★★★★★ (4.6)</div>
+                <div class="price">₹180 <span class="old-price">₹200</span></div>
+                <p class="save">You save ₹20</p>
+                <a href="#contact" class="buy">🛒 Shop Product</a>
+            </div>
+        </article>
+
+        <article class="card">
+            <div class="product-image books">
+                <span>📖</span><b class="tag">20% OFF</b>
+            </div>
+            <div class="product-info">
+                <h3>Story Book</h3>
+                <p class="description">A fun read for your free time.</p>
+                <div class="rating">★★★★☆ (4.4)</div>
+                <div class="price">₹240 <span class="old-price">₹300</span></div>
+                <p class="save">You save ₹60</p>
+                <a href="#contact" class="buy">🛒 Shop Product</a>
+            </div>
+        </article>
+
+        <article class="card">
+            <div class="product-image books">
+                <span>✏️</span><b class="tag">15% OFF</b>
+            </div>
+            <div class="product-info">
+                <h3>Colour Pen Set</h3>
+                <p class="description">Bright pens for notes and creative work.</p>
+                <div class="rating">★★★★☆ (4.2)</div>
+                <div class="price">₹170 <span class="old-price">₹200</span></div>
+                <p class="save">You save ₹30</p>
+                <a href="#contact" class="buy">🛒 Shop Product</a>
+            </div>
+        </article>
+
+        <article class="card">
+            <div class="product-image books">
+                <span>🎒</span><b class="tag">25% OFF</b>
+            </div>
+            <div class="product-info">
+                <h3>Study Backpack</h3>
+                <p class="description">Carry your books and essentials easily.</p>
+                <div class="rating">★★★★★ (4.5)</div>
+                <div class="price">₹750 <span class="old-price">₹1,000</span></div>
+                <p class="save">You save ₹250</p>
+                <a href="#contact" class="buy">🛒 Shop Product</a>
+            </div>
+        </article>
+    </div>
+</section>
+
+<!-- ACCESSORIES SECTION -->
+<section class="shop-section" id="accessories">
+    <div class="section-heading">
+        <h2>⌚ Accessories</h2>
+        <a href="#categories">All Categories ↑</a>
+    </div>
+
+    <div class="products">
+        <article class="card">
+            <div class="product-image accessories">
+                <span>⌚</span><b class="tag">20% OFF</b>
+            </div>
+            <div class="product-info">
+                <h3>Classic Wristwatch</h3>
+                <p class="description">A simple accessory for everyday outfits.</p>
+                <div class="rating">★★★★☆ (4.4)</div>
+                <div class="price">₹640 <span class="old-price">₹800</span></div>
+                <p class="save">You save ₹160</p>
+                <a href="#contact" class="buy">🛒 Shop Product</a>
+            </div>
+        </article>
+
+        <article class="card">
+            <div class="product-image accessories">
+                <span>👜</span><b class="tag">15% OFF</b>
+            </div>
+            <div class="product-info">
+                <h3>Everyday Handbag</h3>
+                <p class="description">A useful bag for your daily essentials.</p>
+                <div class="rating">★★★★★ (4.6)</div>
+                <div class="price">₹850 <span class="old-price">₹1,000</span></div>
+                <p class="save">You save ₹150</p>
+                <a href="#contact" class="buy">🛒 Shop Product</a>
+            </div>
+        </article>
+
+        <article class="card">
+            <div class="product-image accessories">
+                <span>🕶️</span><b class="tag">10% OFF</b>
+            </div>
+            <div class="product-info">
+                <h3>Classic Sunglasses</h3>
+                <p class="description">A stylish accessory for sunny days.</p>
+                <div class="rating">★★★★☆ (4.2)</div>
+                <div class="price">₹360 <span class="old-price">₹400</span></div>
+                <p class="save">You save ₹40</p>
+                <a href="#contact" class="buy">🛒 Shop Product</a>
+            </div>
+        </article>
+
+        <article class="card">
+            <div class="product-image accessories">
+                <span>📿</span><b class="tag">25% OFF</b>
+            </div>
+            <div class="product-info">
+                <h3>Fashion Jewellery</h3>
+                <p class="description">A decorative accessory for special occasions.</p>
+                <div class="rating">★★★★☆ (4.3)</div>
+                <div class="price">₹300 <span class="old-price">₹400</span></div>
+                <p class="save">You save ₹100</p>
+                <a href="#contact" class="buy">🛒 Shop Product</a>
+            </div>
+        </article>
+    </div>
+</section>
+
+<!-- HOW TO SHOP -->
+<section class="steps">
+    <h2 class="section-title">How to Shop 🛍️</h2>
+    <p class="section-subtitle">Three simple steps to explore our demo store.</p>
+
+    <div class="steps-grid">
+        <div class="step">
+            <span>🔎</span>
+            <h3>1. Explore</h3>
+            <p>Browse your favourite product categories.</p>
+        </div>
+
+        <div class="step">
+            <span>🛒</span>
+            <h3>2. Choose</h3>
+            <p>Compare descriptions, prices and ratings.</p>
+        </div>
+
+        <div class="step">
+            <span>💜</span>
+            <h3>3. Enjoy</h3>
+            <p>Discover products that suit your needs.</p>
+        </div>
+    </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter" id="contact">
+    <h2>Join the ShopSpark Club 💌</h2>
+    <p>Sign up for a demo newsletter and stay updated on offers.</p>
+
+    <form action="#" method="get">
+        <input
+            type="email"
+            placeholder="Enter your email address"
+            aria-label="Email address"
+            required
+        >
+        <button type="submit">Subscribe ✨</button>
+    </form>
+    <p><small>Demo form only. No email is stored or sent.</small></p>
+</section>
+
+</main>
+
+<footer>
+    <h2>🛍️ ShopSpark</h2>
+    <p>Your colourful world of shopping!</p>
+    <p>Home | Categories | Offers | Contact</p>
+    <p>© 2026 ShopSpark. College web development project.</p>
+    <p>Note: Product prices, discounts and ratings are sample data.</p>
+</footer>
+
+</body>
+</html>

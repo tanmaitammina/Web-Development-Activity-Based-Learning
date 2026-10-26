@@ -1,0 +1,645 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PowerZone Fitness | Gym</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #101010;
+    color: white;
+    line-height: 1.6;
+}
+
+/* Navigation */
+nav {
+    background: #080808;
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 2px solid #ff3c3c;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: bold;
+    color: #ff3c3c;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 8px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #ff3c3c;
+}
+
+/* Hero Section */
+.hero {
+    min-height: 520px;
+    padding: 100px 8%;
+    display: flex;
+    align-items: center;
+    background:
+        linear-gradient(90deg, #000000ed, #00000055),
+        url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1600&q=85");
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 6vw, 65px);
+    line-height: 1.15;
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    color: #ff3c3c;
+}
+
+.hero p {
+    color: #dddddd;
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+.btn {
+    display: inline-block;
+    background: #ff3c3c;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    border: 2px solid #ff3c3c;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: transparent;
+    color: #ff3c3c;
+    transform: translateY(-3px);
+}
+
+/* Common Sections */
+section {
+    padding: 65px 7%;
+    scroll-margin-top: 75px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 35px;
+    margin-bottom: 12px;
+}
+
+.section-title span {
+    color: #ff3c3c;
+}
+
+.subtitle {
+    text-align: center;
+    color: #bbbbbb;
+    margin-bottom: 35px;
+}
+
+/* Cards */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 22px;
+}
+
+.card {
+    background: #1c1c1c;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #333;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: #ff3c3c;
+    box-shadow: 0 8px 25px #ff3c3c22;
+}
+
+.card h3 {
+    color: #ff3c3c;
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+.card p, .card li {
+    color: #cccccc;
+}
+
+.card ul {
+    padding-left: 20px;
+}
+
+/* Workout Programs */
+.program-icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+/* Trainers */
+.trainer {
+    text-align: center;
+}
+
+.trainer img {
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ff3c3c;
+    margin-bottom: 15px;
+}
+
+/* Membership Plans */
+.pricing {
+    background: #171717;
+}
+
+.price-card {
+    text-align: center;
+}
+
+.price {
+    font-size: 34px;
+    font-weight: bold;
+    color: #ff3c3c;
+    margin: 15px 0;
+}
+
+.price small {
+    font-size: 14px;
+    color: #cccccc;
+}
+
+.price-card ul {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.price-card li {
+    padding: 7px 0;
+    border-bottom: 1px solid #333;
+}
+
+.featured {
+    border: 2px solid #ff3c3c;
+    transform: scale(1.02);
+}
+
+/* Facilities */
+.facility {
+    text-align: center;
+    font-size: 18px;
+}
+
+/* Class Schedule */
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    min-width: 550px;
+    border-collapse: collapse;
+    background: #1c1c1c;
+}
+
+th, td {
+    padding: 15px;
+    border: 1px solid #383838;
+    text-align: center;
+}
+
+th {
+    background: #ff3c3c;
+    color: white;
+}
+
+tr:hover td {
+    background: #292929;
+}
+
+/* Registration Form */
+.register {
+    background: linear-gradient(135deg, #1b1b1b, #300d0d);
+}
+
+form {
+    max-width: 650px;
+    margin: auto;
+    background: #1c1c1c;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #444;
+}
+
+form label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+form input, form select, form textarea {
+    width: 100%;
+    padding: 12px;
+    background: #101010;
+    color: white;
+    border: 1px solid #555;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+form input:focus, form select:focus,
+form textarea:focus {
+    outline: 2px solid #ff3c3c;
+}
+
+form .btn {
+    margin-top: 20px;
+    width: 100%;
+    font-size: 16px;
+}
+
+/* Footer */
+footer {
+    background: #080808;
+    text-align: center;
+    padding: 25px;
+    color: #aaaaaa;
+    border-top: 2px solid #ff3c3c;
+}
+
+footer span {
+    color: #ff3c3c;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    nav {
+        justify-content: center;
+        text-align: center;
+    }
+
+    nav div:last-child {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    nav a {
+        margin: 0;
+        font-size: 13px;
+    }
+
+    .hero {
+        padding: 70px 6%;
+    }
+
+    section {
+        padding: 45px 5%;
+    }
+
+    .section-title {
+        font-size: 29px;
+    }
+
+    .featured {
+        transform: none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Navigation Bar -->
+<nav>
+    <div class="logo">⚡ POWERZONE</div>
+    <div>
+        <a href="#home">Home</a>
+        <a href="#programs">Programs</a>
+        <a href="#trainers">Trainers</a>
+        <a href="#plans">Plans</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#register">Join Us</a>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<header class="hero" id="home">
+    <div class="hero-content">
+        <h1>BUILD YOUR <span>STRENGTH.</span><br>
+        OWN YOUR FITNESS.</h1>
+        <p>
+            Your journey to a stronger, healthier and more
+            confident you starts here. Train hard. Stay consistent.
+            Become unstoppable!
+        </p>
+        <a href="#plans" class="btn">Explore Memberships</a>
+        <a href="#register" class="btn">Join Now →</a>
+    </div>
+</header>
+
+<!-- Workout Programs -->
+<section id="programs">
+    <h2 class="section-title">OUR <span>PROGRAMS</span></h2>
+    <p class="subtitle">Choose your workout and reach your fitness goals.</p>
+
+    <div class="cards">
+        <div class="card">
+            <div class="program-icon">🏋️</div>
+            <h3>Strength Training</h3>
+            <p>Build strength with guided resistance exercises
+            and progressive training plans.</p>
+            <ul>
+                <li>Weight training</li>
+                <li>Muscle conditioning</li>
+                <li>Personal guidance</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <div class="program-icon">🏃</div>
+            <h3>Cardio Fitness</h3>
+            <p>Improve stamina and heart health with energetic
+            cardio sessions.</p>
+            <ul>
+                <li>Treadmill workouts</li>
+                <li>Cycling</li>
+                <li>Endurance training</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <div class="program-icon">🧘</div>
+            <h3>Yoga & Flexibility</h3>
+            <p>Improve mobility, balance and relaxation through
+            guided stretching and yoga.</p>
+            <ul>
+                <li>Yoga sessions</li>
+                <li>Stretching</li>
+                <li>Mind-body balance</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <div class="program-icon">🥊</div>
+            <h3>Boxing Fitness</h3>
+            <p>Develop coordination, technique and fitness with
+            instructor-led boxing workouts.</p>
+            <ul>
+                <li>Boxing basics</li>
+                <li>Footwork drills</li>
+                <li>Fitness circuits</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Trainers -->
+<section id="trainers" class="pricing">
+    <h2 class="section-title">MEET OUR <span>TRAINERS</span></h2>
+    <p class="subtitle">Learn from dedicated fitness professionals.</p>
+
+    <div class="cards">
+        <div class="card trainer">
+            <img src="https://images.unsplash.com/photo-1567013127542-490d757e51fc?auto=format&fit=crop&w=300&q=80"
+                 alt="Strength training coach">
+            <h3>Arjun Kumar</h3>
+            <p>Strength Coach</p>
+            <p>Focus: Strength and technique</p>
+        </div>
+
+        <div class="card trainer">
+            <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=300&q=80"
+                 alt="Fitness coach">
+            <h3>Priya Sharma</h3>
+            <p>Fitness Trainer</p>
+            <p>Focus: Cardio and conditioning</p>
+        </div>
+
+        <div class="card trainer">
+            <img src="https://images.unsplash.com/photo-1599058945522-28d584b6f0ff?auto=format&fit=crop&w=300&q=80"
+                 alt="Personal training coach">
+            <h3>Rahul Verma</h3>
+            <p>Personal Trainer</p>
+            <p>Focus: Personalized workouts</p>
+        </div>
+    </div>
+</section>
+
+<!-- Facilities -->
+<section id="facilities">
+    <h2 class="section-title">OUR <span>FACILITIES</span></h2>
+    <p class="subtitle">Everything you need for a complete workout experience.</p>
+
+    <div class="cards">
+        <div class="card facility">
+            <div class="program-icon">💪</div>
+            <h3>Modern Equipment</h3>
+            <p>Weights, resistance machines and training equipment.</p>
+        </div>
+
+        <div class="card facility">
+            <div class="program-icon">🚴</div>
+            <h3>Cardio Zone</h3>
+            <p>Treadmills, exercise bikes and cardio machines.</p>
+        </div>
+
+        <div class="card facility">
+            <div class="program-icon">🚿</div>
+            <h3>Changing Rooms</h3>
+            <p>Convenient changing areas and shower facilities.</p>
+        </div>
+
+        <div class="card facility">
+            <div class="program-icon">👥</div>
+            <h3>Group Classes</h3>
+            <p>Motivating sessions with supportive trainers.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Membership Plans -->
+<section id="plans" class="pricing">
+    <h2 class="section-title">MEMBERSHIP <span>PLANS</span></h2>
+    <p class="subtitle">Choose a plan that matches your goals.</p>
+
+    <div class="cards">
+        <div class="card price-card">
+            <h3>Basic</h3>
+            <div class="price">₹999 <small>/month</small></div>
+            <ul>
+                <li>Gym access</li>
+                <li>Basic equipment</li>
+                <li>Locker access</li>
+                <li>Group workout area</li>
+            </ul>
+            <a href="#register" class="btn">Choose Basic</a>
+        </div>
+
+        <div class="card price-card featured">
+            <h3>Premium ⭐</h3>
+            <div class="price">₹1,799 <small>/month</small></div>
+            <ul>
+                <li>Everything in Basic</li>
+                <li>Trainer guidance</li>
+                <li>Group fitness classes</li>
+                <li>Fitness assessment</li>
+            </ul>
+            <a href="#register" class="btn">Choose Premium</a>
+        </div>
+
+        <div class="card price-card">
+            <h3>Elite</h3>
+            <div class="price">₹2,999 <small>/month</small></div>
+            <ul>
+                <li>Everything in Premium</li>
+                <li>Personal training sessions</li>
+                <li>Individual workout plan</li>
+                <li>Priority class booking</li>
+            </ul>
+            <a href="#register" class="btn">Choose Elite</a>
+        </div>
+    </div>
+    <p class="subtitle" style="margin-top:25px;">
+        *Sample prices for this student project. Actual facilities and
+        membership benefits depend on the gym.
+    </p>
+</section>
+
+<!-- Class Schedule -->
+<section id="schedule">
+    <h2 class="section-title">WEEKLY <span>CLASS SCHEDULE</span></h2>
+    <p class="subtitle">Plan your week and stay consistent.</p>
+
+    <div class="table-container">
+        <table>
+            <tr>
+                <th>Class</th>
+                <th>Monday</th>
+                <th>Wednesday</th>
+                <th>Friday</th>
+                <th>Time</th>
+            </tr>
+            <tr>
+                <td>Strength Training</td>
+                <td>✓</td>
+                <td>✓</td>
+                <td>✓</td>
+                <td>6:00 AM</td>
+            </tr>
+            <tr>
+                <td>Cardio Blast</td>
+                <td>✓</td>
+                <td>✓</td>
+                <td>✓</td>
+                <td>7:00 AM</td>
+            </tr>
+            <tr>
+                <td>Yoga</td>
+                <td>✓</td>
+                <td>✓</td>
+                <td>✓</td>
+                <td>5:00 PM</td>
+            </tr>
+            <tr>
+                <td>Boxing Fitness</td>
+                <td>✓</td>
+                <td>✓</td>
+                <td>✓</td>
+                <td>6:00 PM</td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+<!-- Registration Form -->
+<section id="register" class="register">
+    <h2 class="section-title">START YOUR <span>JOURNEY</span></h2>
+    <p class="subtitle">Fill in your details to register your interest.</p>
+
+    <form action="#" method="get">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name"
+               placeholder="Enter your full name" required>
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email"
+               placeholder="Enter your email" required>
+
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone"
+               placeholder="Enter your phone number"
+               pattern="[0-9]{10}" maxlength="10" required>
+
+        <label for="plan">Select Membership</label>
+        <select id="plan" name="plan" required>
+            <option value="">-- Choose a Plan --</option>
+            <option>Basic - ₹999/month</option>
+            <option>Premium - ₹1,799/month</option>
+            <option>Elite - ₹2,999/month</option>
+        </select>
+
+        <label for="goal">Your Fitness Goal</label>
+        <select id="goal" name="goal" required>
+            <option value="">-- Select Your Goal --</option>
+            <option>Build Strength</option>
+            <option>Improve Stamina</option>
+            <option>Improve Flexibility</option>
+            <option>General Fitness</option>
+        </select>
+
+        <label for="message">Additional Message</label>
+        <textarea id="message" name="message" rows="4"
+                  placeholder="Tell us about your fitness goals..."></textarea>
+
+        <button type="submit" class="btn">Submit Registration →</button>
+    </form>
+</section>
+
+<!-- Footer -->
+<footer>
+    <h3>⚡ POWERZONE FITNESS</h3>
+    <p>Train Hard. Stay Strong. Live Better.</p>
+    <p>Contact: info@powerzone.example | Phone: 00000 00000</p>
+    <p>© 2026 PowerZone Fitness. Student Website Project.</p>
+    <p>Made with <span>♥</span> for fitness enthusiasts.</p>
+</footer>
+
+</body>
+</html>
