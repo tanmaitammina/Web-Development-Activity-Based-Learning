@@ -1,4 +1,4 @@
-```html
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +7,7 @@
     <title>Nexus Gaming | Esports Community</title>
 
     <style>
-        /* GENERAL STYLES */
+        /* BASIC STYLES */
         * {
             margin: 0;
             padding: 0;
@@ -15,19 +15,10 @@
             scroll-behavior: smooth;
         }
 
-        :root {
-            --bg: #080b18;
-            --card: #12182b;
-            --purple: #9b5cff;
-            --cyan: #00e5ff;
-            --white: #ffffff;
-            --muted: #aab2ca;
-        }
-
         body {
             font-family: Arial, sans-serif;
-            background: var(--bg);
-            color: var(--white);
+            background: #050816;
+            color: white;
             line-height: 1.6;
         }
 
@@ -53,7 +44,7 @@
         }
 
         .eyebrow {
-            color: var(--cyan);
+            color: #00f5ff;
             letter-spacing: 3px;
             font-size: 13px;
             font-weight: bold;
@@ -65,17 +56,19 @@
         }
 
         .section-heading h2 span {
-            color: var(--purple);
+            color: #00f5ff;
+            text-shadow: 0 0 15px #00f5ff55;
         }
 
         .section-heading > p:last-child {
-            color: var(--muted);
+            color: #b7c4df;
         }
 
-        /* NAVIGATION BAR */
+        /* NAVIGATION */
         header {
-            background: rgba(8, 11, 24, 0.96);
-            border-bottom: 1px solid #242b43;
+            background: #080b18;
+            border-bottom: 1px solid #00f5ff55;
+            box-shadow: 0 4px 22px #00f5ff12;
             position: sticky;
             top: 0;
             z-index: 100;
@@ -92,11 +85,12 @@
         .logo {
             font-size: 24px;
             font-weight: bold;
-            color: var(--cyan);
+            color: #00f5ff;
+            text-shadow: 0 0 12px #00f5ff88;
         }
 
         .logo span {
-            color: var(--purple);
+            color: #a855f7;
         }
 
         .nav-links {
@@ -108,25 +102,26 @@
 
         .nav-links a {
             font-size: 14px;
-            color: var(--muted);
-            transition: 0.3s;
+            color: #b7c4df;
         }
 
         .nav-links a:hover {
-            color: var(--cyan);
+            color: #00f5ff;
+            text-shadow: 0 0 10px #00f5ff;
         }
 
-        /* HERO SECTION */
+        /* HOME SECTION */
         .hero {
             min-height: 520px;
             display: flex;
             align-items: center;
             text-align: center;
-            background:
-                radial-gradient(circle at 20% 20%, #392064 0, transparent 35%),
-                radial-gradient(circle at 80% 70%, #073c51 0, transparent 35%),
-                var(--bg);
             padding: 80px 0;
+            background:
+                radial-gradient(circle at 15% 25%, #5b21b655, transparent 32%),
+                radial-gradient(circle at 85% 75%, #00f5ff22, transparent 32%),
+                linear-gradient(135deg, #050816, #0b1025, #080b18);
+            border-bottom: 1px solid #a855f733;
         }
 
         .hero-content {
@@ -136,46 +131,52 @@
         .hero-tag {
             display: inline-block;
             padding: 7px 18px;
-            border: 1px solid var(--purple);
+            border: 1px solid #00f5ff;
             border-radius: 30px;
-            color: var(--cyan);
+            color: #00f5ff;
+            background: #00f5ff0c;
             margin-bottom: 20px;
             font-size: 13px;
+            box-shadow: 0 0 18px #00f5ff20;
         }
 
         .hero h1 {
-            font-size: clamp(42px, 8vw, 78px);
+            font-size: 70px;
             line-height: 1.1;
             margin-bottom: 20px;
         }
 
         .hero h1 span {
-            color: var(--purple);
-            text-shadow: 0 0 25px #9b5cff88;
+            color: #00f5ff;
+            text-shadow: 0 0 12px #00f5ff, 0 0 30px #00f5ff66;
         }
 
         .hero p {
-            color: var(--muted);
+            color: #b7c4df;
             max-width: 650px;
             margin: 0 auto 28px;
         }
 
+        /* BUTTONS */
         .btn {
             display: inline-block;
-            background: linear-gradient(90deg, var(--purple), #6844ff);
+            background: linear-gradient(100deg, #00f5ff, #8b5cf6);
+            color: #050816;
             padding: 12px 25px;
             border-radius: 7px;
             font-weight: bold;
             transition: 0.3s;
             border: none;
             cursor: pointer;
+            box-shadow: 0 0 18px #00f5ff30;
         }
 
         .btn:hover {
             transform: translateY(-4px);
-            box-shadow: 0 0 22px #9b5cff77;
+            box-shadow: 0 0 12px #00f5ff, 0 0 30px #a855f766;
         }
 
+        /* STATISTICS */
         .stats {
             display: flex;
             justify-content: center;
@@ -186,7 +187,7 @@
 
         .stat h3 {
             font-size: 28px;
-            color: var(--cyan);
+            color: #00f5ff;
         }
 
         .stat p {
@@ -194,7 +195,7 @@
             margin: 0;
         }
 
-        /* COMMON GRID AND CARDS */
+        /* GAME, PLAYER, TEAM AND NEWS GRIDS */
         .game-grid,
         .player-grid,
         .team-grid,
@@ -208,11 +209,12 @@
         .player-card,
         .team-card,
         .news-card {
-            background: var(--card);
-            border: 1px solid #252d46;
+            background: linear-gradient(145deg, #101a32, #0a1022);
+            border: 1px solid #27385a;
             border-radius: 14px;
             padding: 25px;
             transition: 0.3s;
+            box-shadow: 0 8px 24px #00000022;
         }
 
         .game-card:hover,
@@ -220,8 +222,8 @@
         .team-card:hover,
         .news-card:hover {
             transform: translateY(-7px);
-            border-color: var(--purple);
-            box-shadow: 0 10px 30px #00000044;
+            border-color: #00f5ff;
+            box-shadow: 0 0 10px #00f5ff22, 0 0 28px #a855f722;
         }
 
         /* POPULAR GAMES */
@@ -235,53 +237,55 @@
         }
 
         .game-card p {
-            color: var(--muted);
+            color: #b7c4df;
             font-size: 14px;
         }
 
         .game-label {
             display: inline-block;
-            color: var(--cyan);
-            background: #00e5ff14;
+            color: #00f5ff;
+            background: #00f5ff12;
+            border: 1px solid #00f5ff33;
             padding: 4px 10px;
             border-radius: 20px;
             margin-top: 15px;
             font-size: 12px;
         }
 
-        /* TOURNAMENT TABLE */
+        /* TABLES */
         .table-wrapper {
             overflow-x: auto;
             border-radius: 12px;
-            border: 1px solid #252d46;
+            border: 1px solid #00f5ff44;
+            box-shadow: 0 0 20px #00f5ff0c;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
             min-width: 650px;
-            background: var(--card);
+            background: #0c1428;
         }
 
         th, td {
             padding: 16px;
             text-align: left;
-            border-bottom: 1px solid #252d46;
+            border-bottom: 1px solid #273452;
         }
 
         th {
-            background: #1b2340;
-            color: var(--cyan);
+            background: linear-gradient(90deg, #17264a, #241644);
+            color: #00f5ff;
             text-transform: uppercase;
             font-size: 13px;
         }
 
         td {
-            color: var(--muted);
+            color: #b7c4df;
         }
 
         tbody tr:hover {
-            background: #1a2037;
+            background: #14213a;
         }
 
         .status {
@@ -317,9 +321,9 @@
             font-size: 32px;
             font-weight: bold;
             color: white;
-            background: linear-gradient(135deg, var(--purple), #252f67);
-            border: 2px solid var(--cyan);
-            box-shadow: 0 0 20px #00e5ff22;
+            background: linear-gradient(135deg, #00bcd4, #7c3aed 75%);
+            border: 2px solid #00f5ff;
+            box-shadow: 0 0 12px #00f5ff55, 0 0 24px #a855f733;
         }
 
         .player-card h3 {
@@ -327,13 +331,13 @@
         }
 
         .player-role {
-            color: var(--cyan);
+            color: #00f5ff;
             font-weight: bold;
             margin: 7px 0;
         }
 
         .player-card > p:last-child {
-            color: var(--muted);
+            color: #b7c4df;
             font-size: 13px;
         }
 
@@ -348,23 +352,23 @@
         }
 
         .team-card p {
-            color: var(--muted);
+            color: #b7c4df;
             margin-top: 8px;
             font-size: 14px;
         }
 
         /* LEADERBOARD */
         .rank {
-            color: var(--cyan);
+            color: #00f5ff;
             font-weight: bold;
         }
 
         .points {
-            color: #d8a5ff;
+            color: #c4b5fd;
             font-weight: bold;
         }
 
-        /* NEWS */
+        /* GAMING NEWS */
         .news-card {
             padding: 0;
             overflow: hidden;
@@ -374,7 +378,7 @@
             padding: 30px 20px;
             text-align: center;
             font-size: 40px;
-            background: linear-gradient(135deg, #33215e, #0d5261);
+            background: linear-gradient(135deg, #5520a5, #006b82);
         }
 
         .news-content {
@@ -382,7 +386,7 @@
         }
 
         .news-content small {
-            color: var(--cyan);
+            color: #00f5ff;
         }
 
         .news-content h3 {
@@ -390,17 +394,18 @@
         }
 
         .news-content p {
-            color: var(--muted);
+            color: #b7c4df;
             font-size: 14px;
         }
 
-        /* COMMUNITY CALL TO ACTION */
+        /* JOIN COMMUNITY */
         .join-box {
             text-align: center;
             padding: 45px 25px;
-            border: 1px solid var(--purple);
+            border: 1px solid #00f5ff;
             border-radius: 16px;
-            background: linear-gradient(135deg, #1d1535, #102331);
+            background: linear-gradient(135deg, #10132d, #102b3b);
+            box-shadow: 0 0 24px #00f5ff12, inset 0 0 30px #a855f70c;
         }
 
         .join-box h2 {
@@ -409,7 +414,7 @@
         }
 
         .join-box p {
-            color: var(--muted);
+            color: #b7c4df;
             margin-bottom: 25px;
         }
 
@@ -417,16 +422,17 @@
         footer {
             padding: 28px 0;
             text-align: center;
-            border-top: 1px solid #252d46;
-            color: var(--muted);
+            border-top: 1px solid #00f5ff44;
+            background: #050816;
+            color: #b7c4df;
             font-size: 13px;
         }
 
         footer span {
-            color: var(--cyan);
+            color: #00f5ff;
         }
 
-        /* RESPONSIVE DESIGN */
+        /* MOBILE RESPONSIVE DESIGN */
         @media (max-width: 850px) {
             nav {
                 flex-direction: column;
@@ -442,6 +448,10 @@
             .team-grid,
             .news-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero h1 {
+                font-size: 55px;
             }
         }
 
@@ -468,6 +478,10 @@
             .hero {
                 min-height: 450px;
             }
+
+            .hero h1 {
+                font-size: 40px;
+            }
         }
     </style>
 </head>
@@ -493,7 +507,7 @@
 
     <main>
 
-        <!-- HERO SECTION -->
+        <!-- HOME SECTION -->
         <section class="hero" id="home">
             <div class="container hero-content">
                 <span class="hero-tag">🎮 YOUR ULTIMATE GAMING HUB</span>
@@ -651,7 +665,6 @@
                 </div>
 
                 <div class="player-grid">
-
                     <div class="player-card">
                         <div class="player-avatar">K</div>
                         <h3>Karthik</h3>
@@ -693,7 +706,6 @@
                         <p class="player-role">🏆 MVP</p>
                         <p>A standout player in every match.</p>
                     </div>
-
                 </div>
             </div>
         </section>
@@ -851,7 +863,7 @@
         <section class="section">
             <div class="container">
                 <div class="join-box">
-                    <h2>Ready to Join the <span style="color: var(--cyan);">Battle?</span></h2>
+                    <h2>Ready to Join the <span style="color: #00f5ff;">Battle?</span></h2>
                     <p>Discover games, celebrate teamwork and grow with the Nexus Gaming community.</p>
                     <a href="#players" class="btn">Meet Our Players →</a>
                 </div>
